@@ -1,0 +1,36 @@
+.cart-header{
+    background-color: #4269ea;
+    height: 50px;
+}
+.fav-star{
+    color: #f7ce23;
+    font-size: 35px;
+}
+
+.white{
+    color: #ffffff
+  }
+.header-right-icons{
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.search-icon, .cart-icon{
+  padding: 5px 10px 0px 0px;
+}
+
+input[type=text] {
+  color: #ffffff;
+  width: 130px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: transparent;
+  transition: width 0.4s ease-in-out;
+  float: right;
+  border: 0px;
+}
+
+input[type=text]:focus {
+  width: 100%;
+}

@@ -1,1 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'variable.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: $default-font-size; background-color: $body-bg-color}
+.cursor{cursor: pointer;}
+.p0{padding: $padding-0}
+.m0{margin: $margin-0;}
+@media screen and (max-width: 565px) and (min-width: 300px) {
+    
+    .mv{
+        display: block;
+    }
+    .filters{
+        display: none;
+    }
+    .display-product{
+        border: 1px solid #e2dddd;
+        &.fa{
+            border: 0px solid #e2dddd;
+            font-size: 30px;
+        }
+    }
+    .countProd{
+        border: 1px solid #e2dddd;
+        font-size: 20px;
+        text-align: center;
+    }
+    .discount-rate{
+        color: #008000;
+        float: left;
+        padding: 10px 0px 0px 0px;
+    }
+    .strike-price{
+        text-decoration: line-through;
+        padding: 10px 10px 0px 10px;
+        word-break: break-all;
+        font-size: 20px !important; 
+        float: left;
+    }
+    .actual-price {
+        font-weight: bold;
+        font-size: 20px !important;
+        padding: 10px;
+        width: 100%;
+        float: left;
+    }
+    .discount-rate, .product-details-name, .removeProd{
+        font-size: 20px !important; 
+    }
+    .display-product{
+        float: left;
+    }
+    .pmTop{
+        padding-top: 10px !important;
+        margin-top: 10px !important;
+    }
+    .removeProd{
+        text-align: center;
+        color: #676464;
+    }
+    .cart-price-details{
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+    .countBox{
+        text-align: center;
+    }
+    
+}

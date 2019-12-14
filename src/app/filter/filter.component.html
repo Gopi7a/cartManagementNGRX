@@ -1,0 +1,7 @@
+<div class="col-12 text-center filters">
+        <p class="text-left filter-txt">Filters</p>
+        &#8377;100 <mat-slider class="example-margin" [max]="max" [min]="min" [thumbLabel]="thumbLabel"
+        [thumbLabel]="value"
+        [(ngModel)]="value"></mat-slider>&#8377;10000
+        <div class="text-center"><button mat-raised-button color="primary" (click)="slideMe()">Apply</button></div>
+      </div>

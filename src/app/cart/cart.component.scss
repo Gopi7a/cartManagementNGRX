@@ -1,0 +1,76 @@
+@import '../../variable.scss';
+
+.cart-list{
+    border: 1px solid $border-color-ccc;
+    padding: 10px;
+    background: #fff;
+    margin: 10px;
+}
+.cart-list img{
+    width: 100%;
+}
+.strike-price{
+    text-decoration: line-through;
+    padding: 10px;
+    font-size: 15px;
+}
+.actual-price{
+    font-weight: bold;
+    font-size: 20px;
+}
+.discount-rate{
+    color: #008000;
+}
+.display-product{
+    padding: 10px;
+    margin: 10px;
+    float: none;
+}
+.pmTop{
+    padding-top: 40px;
+    margin-top: 40px;
+}
+.cart-page .product-cart-details{
+    padding-top: 50px;
+    margin-top: 10px;
+}
+.cart-price-details{
+    margin-top: 30px;
+    border: 1px solid #dddddd;
+    background: #ffffff;
+}
+.price-details{
+    font-weight: bold;
+    font-size: 18px;
+    color: #969292;
+    border-bottom: 1px solid #c7c7c7;
+    padding: 5px;
+}
+.cart-amount{
+    font-size: 16px;
+    padding: 5px;
+}
+.total-payable{
+    font-weight: bold;
+    padding: 5px;
+}
+.removeProd{
+    color: #676464;
+        padding-top: 45px;
+        margin-top: 50px;
+}
+.countProd{
+    border: 1px solid #e2dddd;
+    font-size: 15px;
+    text-align: center;
+    width: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.countBox{
+    padding-left: 0px;
+}
+.payCart{
+    padding: 10px;
+    margin: 10px;
+}

@@ -1,0 +1,6 @@
+<mat-form-field class="search-input">
+    <input matInput placeholder="Input" (input)="searchText($event.target.value)">
+    <mat-icon matSuffix autocomplete="off">search</mat-icon>
+</mat-form-field>
+<i class="fa fa-shopping-cart white cart-icon cursor" (click)="routeMe('/cart')"></i>
+<span class="badge cart-count" *ngIf="cart.length > 0">{{ cart.length }}</span>

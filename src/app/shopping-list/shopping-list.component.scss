@@ -1,0 +1,38 @@
+@import '../../variable.scss';
+
+.flex-container {
+    display: $display-flex;
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+.flex-container .product-image-holder {
+    margin: 10px;
+    text-align: left;
+  }
+.product-body{
+    border-left: 1px solid $border-color-ccc;
+  }
+.product-details img{
+   width: 100%;
+}
+.strike-price{
+    text-decoration: line-through;
+    padding: 10px;
+    font-size: 15px;
+}
+.actual-price{
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+}
+.discount-rate{
+    color: #008000;
+}
+.display-product{
+    padding: 10px;
+    margin: 10px;
+}
+
+.mv{
+    display: none;
+}

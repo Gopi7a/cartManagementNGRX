@@ -1,0 +1,69 @@
+<app-header></app-header>
+<div class="container-fluid cart-page">
+  <div class="row">
+    <div class="col-12 col-md-8 product-body">
+      <div class="flex-container product-details">
+        <div class="display-product col-md-12">
+          <div *ngFor="let item of uniqueProd" class="cart-list float-left">
+            <div class="float-left col-12 col-md-3">
+              <img src="{{item.img_url}}">
+            </div>
+            <div class="float-left product-cart-details col-md-4 col-12">
+              <p class="product-details-name">{{ item.name }}</p>
+              <div class="product-details-price" *ngIf="item.discount>0">
+                <span class="actual-price">&#8377; {{showDiscountPrice(item.price, item.discount)}}</span>
+                <span class="strike-price">&#8377; {{ item.price }}</span>
+                <span class="discount-rate">{{ item.discount }}% off</span>
+              </div>
+              <p class="product-details-price" *ngIf="item.discount==0">
+                <span class="actual-price">&#8377; {{ item.price }}</span>
+                <span class="strike-price">&nbsp;</span>
+                <span class="discount-rate">&nbsp;</span>
+              </p>
+            </div>
+            <div class="float-left pmTop countBox col-md-3 col-12">
+              <i class="display-product fa fa-minus-circle" (click)="removeItem(item.id)"></i>
+              <input matInput autocomplete="off" size="10" class="countProd" maxlength="1" [value]="getProdCount(item.id)">
+              <i class="display-product fa fa-plus-circle" (click)="addItem(item.id)"></i>
+
+            </div>
+            <div class="float-left pmTop col-md-2 col-12 removeProd">
+              <a (click)="removeFromCart(item)">REMOVE</a>
+            </div>
+          </div>
+          <div *ngIf="uniqueProd.length==0" class="d-flex justify-content-center cursor" (click)="routeMe()">Cart is
+            empty,
+            Click here to continue shopping!</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-4 col-12 product-body" *ngIf="uniqueProd.length>0">
+      <div class="col-md-12 flex-container cart-price-details">
+        <div class="price-details">PRICE DETAILS</div>
+        <div *ngFor="let item of uniqueProd">
+          <div class="cart-amount d-flex justify-content-between">
+            <div>Price ( {{item.name}} * {{getProdCount(item.id)}} ):</div>
+            <div>{{getTotalAmt(item.price, item.id)}}</div>
+          </div>
+        </div>
+        <div class="cart-amount d-flex justify-content-between">
+          <div class="font-weight-bold">Discount : </div>
+          <div> {{getAllDiscount(uniqueProd)}}
+          </div>
+        </div>
+
+        <div class="dropdown-divider"></div>
+        <div class="total-payable  d-flex justify-content-between">
+          <div> Total Payable : </div>
+          <div>{{getAllTotalAmt()}}</div>
+        </div>
+
+        <div class="payCart d-flex justify-content-between">
+            <button mat-raised-button color="primary">Pay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

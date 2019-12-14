@@ -1,0 +1,32 @@
+<app-header (searchString)="searchFilter($event)"></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <app-filter (sendValue)="slideMe($event)"></app-filter>
+    <div class="col-md-10 col-12 product-body">
+     <app-sort (filterRange)='filterBy($event)'></app-sort>
+      <div class="flex-container product-details col-12">
+        <div *ngFor="let product of productDetails" class="display-product col-md-3 col-5">
+          <div class="product-image-holder">
+            <img [src]="product.img_url" [alt]="product.name" class="product-image" />
+          </div>
+          <div class="product-details">
+            <p class="product-details-name">{{ product.name }}</p>
+            <p class="product-details-price" *ngIf="product.discount>0">
+              <span class="actual-price">&#8377; {{showDiscountPrice(product.price, product.discount)}}</span>
+              <span class="strike-price">&#8377; {{ product.price }}</span>
+              <span class="discount-rate">{{ product.discount }}% off</span>
+            </p>
+            <p class="product-details-price" *ngIf="product.discount==0">
+              <span class="actual-price">&#8377; {{ product.price }}</span>
+              <span class="set-space">&nbsp;</span>
+            </p>
+          </div>
+          <div class="product-actions">
+            <button mat-raised-button color="primary" (click)="addToCart(product)"> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
