@@ -25,8 +25,8 @@ export class CartComponent implements OnInit {
   uniqueProd: any;
   cartMsg = 'Cart is empty, Click here to continue shopping!';
 
-  constructor(private store: Store<{ items: []; cart: [] }>, private router: Router) {
-    store.pipe(select('shop')).subscribe((data: any) => { (this.cart = data.cart) });
+  constructor(private store: Store<any>, private router: Router) {
+    store.pipe(select('shop')).subscribe((data: any) => {(this.cart = data.cart)});
   }
 
   ngOnInit() {
@@ -77,14 +77,15 @@ export class CartComponent implements OnInit {
   removeFromCart(item: Product) {
     this.store.dispatch(new RemoveFromCart(item));
     const uniqueSet = new Set();
-    this.uniqueProd = this.cart.filter(cart => {
-      if (!uniqueSet.has(cart.id)) {
-        uniqueSet.delete(cart.id);
+
+    this.uniqueProd = this.cart.filter(data => {
+      if (!uniqueSet.has(data.id)) {
+        uniqueSet.add(data.id);
         return true;
       }
       return false;
     }, uniqueSet);
-  }
+   }
 
   routeMe() {
     this.router.navigate(['']);

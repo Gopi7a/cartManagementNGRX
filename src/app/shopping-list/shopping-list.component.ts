@@ -29,7 +29,7 @@ export class ShoppingListComponent implements OnInit {
   inCart = false;
   backupProduct: any;
 
-  constructor(private productService: ProductService, private store: Store<{ items: []; cart: [] }>) {
+  constructor(private productService: ProductService, private store: Store<any>) {
     store.pipe(select('shop')).subscribe((data: any) => {
       this.productDetails = data.items;
       this.backupProduct = data.items;

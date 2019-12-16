@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
   cart: Product[] = [];
   @Output() searchValue = new EventEmitter();
 
-  constructor(private store: Store<{ items: []; cart: [] }>, private router: Router) {
+  constructor(private store: Store<any>, private router: Router) {
     store.pipe(select('shop')).subscribe((data: any) => (this.cart = data.cart));
   }
 
