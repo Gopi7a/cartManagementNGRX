@@ -23,9 +23,10 @@ export class CartComponent implements OnInit {
   itemCount: any;
   countProd: number;
   uniqueProd: any;
+  cartMsg = 'Cart is empty, Click here to continue shopping!';
 
   constructor(private store: Store<{ items: []; cart: [] }>, private router: Router) {
-    store.pipe(select('shop')).subscribe(data => (this.cart = data.cart));
+    store.pipe(select('shop')).subscribe((data: any) => { (this.cart = data.cart) });
   }
 
   ngOnInit() {
@@ -109,9 +110,22 @@ export class CartComponent implements OnInit {
   getAllTotalAmt() {
     let total = 0;
     const c = this.uniqueProd.filter((item) => {
-       total += item.price * this.getProdCount(item.id);
+      total += item.price * this.getProdCount(item.id);
     });
     const discuount = this.getAllDiscount(this.uniqueProd);
     return total - discuount;
+  }
+  checkout() {
+    const uniqueSet = new Set();
+    this.uniqueProd = [];
+    this.cart.filter(item => {
+      this.store.dispatch(new RemoveFromCart(item));
+      if (!uniqueSet.has(item.id)) {
+        uniqueSet.delete(item.id);
+        return true;
+      }
+      return false;
+    }, uniqueSet);
+    this.cartMsg = 'Thanks for shopping!, Order placed!';
   }
 }

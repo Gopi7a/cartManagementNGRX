@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
   @Output() searchValue = new EventEmitter();
 
   constructor(private store: Store<{ items: []; cart: [] }>, private router: Router) {
-    store.pipe(select('shop')).subscribe(data => (this.cart = data.cart));
+    store.pipe(select('shop')).subscribe((data: any) => (this.cart = data.cart));
   }
 
   ngOnInit() {
@@ -32,7 +32,7 @@ export class SearchComponent implements OnInit {
     this.router.navigate([page]);
   }
 
-  searchText(txt){
+  searchText(txt) {
     this.searchValue.emit(txt);
   }
 }

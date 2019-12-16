@@ -31,9 +31,7 @@
               <a (click)="removeFromCart(item)">REMOVE</a>
             </div>
           </div>
-          <div *ngIf="uniqueProd.length==0" class="d-flex justify-content-center cursor" (click)="routeMe()">Cart is
-            empty,
-            Click here to continue shopping!</div>
+          <div *ngIf="uniqueProd.length==0" class="d-flex justify-content-center cursor" (click)="routeMe()">{{cartMsg}}</div>
         </div>
       </div>
 
@@ -61,7 +59,7 @@
         </div>
 
         <div class="payCart d-flex justify-content-between">
-            <button mat-raised-button color="primary">Pay</button>
+            <button mat-raised-button color="primary" (click)="checkout()">Pay</button>
         </div>
       </div>
     </div>

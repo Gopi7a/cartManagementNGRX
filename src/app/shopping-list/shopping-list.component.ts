@@ -30,7 +30,7 @@ export class ShoppingListComponent implements OnInit {
   backupProduct: any;
 
   constructor(private productService: ProductService, private store: Store<{ items: []; cart: [] }>) {
-    store.pipe(select('shop')).subscribe(data => {
+    store.pipe(select('shop')).subscribe((data: any) => {
       this.productDetails = data.items;
       this.backupProduct = data.items;
     });
