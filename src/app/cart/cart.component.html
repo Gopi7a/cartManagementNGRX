@@ -28,7 +28,7 @@
 
             </div>
             <div class="float-left pmTop col-md-2 col-12 removeProd">
-              <a (click)="removeFromCart(item)">REMOVE</a>
+              <a (click)="removeFromCart(item)" class="cursor">REMOVE</a>
             </div>
           </div>
           <div *ngIf="uniqueProd.length==0" class="d-flex justify-content-center cursor" (click)="routeMe()">{{cartMsg}}</div>
